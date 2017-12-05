@@ -27,3 +27,4 @@ rm(valids)
 # if(validation) == 1 {proceed} else {recheck data}
 rm(valdiation)
 
+data <- sparse_Creator(df, 5, 6)
