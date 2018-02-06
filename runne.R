@@ -16,11 +16,11 @@ df[,5] <- html_correcter(df[,5])
 df[,6] <- html_correcter(df[,6])
 
 valids <- sapply(
-  1:length(unique(df[,2])), 
+  1:length(unique(collated_merged[,1])), 
   function(i) artist_validity_tester(
-    df, 
-    unique(df[,2])[i])
-  )
+    collated_merged, 
+    unique(collated_merged[,1])[i])
+)
 
 validation <- sum(sum(valids == "valid") == length(unique(df[,1])))
 rm(valids)
