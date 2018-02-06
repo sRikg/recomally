@@ -1,3 +1,4 @@
+
 artist_validity_tester <- function(data_frame, artist){
   temp <- data_frame[data_frame$`Artist Name` == artist,]
   temp_num <- sum(temp$page_Link %in% unique(temp$new_Artist_Id))
