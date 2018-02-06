@@ -21,7 +21,7 @@ sparse_Creator <- function(data_frame, col_num_user, col_num_likes){
   for(i in 1:length(users)){
     dt[i,] <- temp[[i]]
     #rownames(dt)[i] <- users[i]
-  print(paste0(".", i))
+  print(paste0(i, " of ", length(users)))
   }
   
   list_dt <- list(dt, users, likes)
