@@ -8,6 +8,13 @@ artist_validity_tester <- function(data_frame, artist){
   }
 }
 
+valids <- sapply(
+  1:length(unique(collated_merged[,1])), 
+  function(i) artist_validity_tester(
+    collated_merged, 
+    unique(collated_merged[,1])[i])
+)
+
 valids <- as.data.frame(
   cbind(
     unique(collated_merged[,1]),
@@ -15,6 +22,11 @@ valids <- as.data.frame(
   )
 )
 names(valids) <- c("Artist Name", "valids")
+
+validation <- sum(sum(valids == "valid") == length(unique(collated_merged[,1])))
+rm(valids)
+# if(validation) == 1 {proceed} else {recheck data}
+rm(valdiation)
 
 artist_valid_num <- function(data_frame, artist){
   temp <- data_frame[data_frame$`Artist Name` == artist,]
